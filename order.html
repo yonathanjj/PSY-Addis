@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSY Addis Festival</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="order.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="order.js"></script>
+</head>
+<body class="font-inknut-antiqua">
+
+<!-- Navbar -->
+<nav class="navbar fixed top-0 w-full h-20 flex items-center px-1 backdrop-blur-md backdrop-brightness-75">
+    <a href="index.html"><img src="psy.png" class="logo"></a>
+    <div class="nav-links flex-1 justify-center hidden md:flex space-x-6">
+        <a href="Gallery.html" class="text-white font-bold hover:text-yellow-400">Gallery</a>
+        <a href="Aboutus.html" class="text-white font-bold hover:text-yellow-400">About Us</a>
+    </div>
+    <div class="hidden md:flex md:ml-auto space-x-6 mr-16">
+        <a href="login.html" class="text-white font-bold hover:text-yellow-400" id="loginButton">Login</a>
+        <a href="#" class="text-white font-bold hover:text-yellow-400">Store</a>
+    </div>
+    <div class="hamburger md:hidden flex flex-col items-center cursor-pointer" id="hamburger">
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1 mb-1"></div>
+        <div class="bg-white w-8 h-1"></div>
+    </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu hidden md:hidden absolute top-20 left-20 w-full bg-gray-800 p-5 z-20">
+    <a href="Gallery.html" class="block text-white font-bold hover:text-yellow-400">Gallery</a>
+    <a href="Aboutus.html" class="block text-white font-bold hover:text-yellow-400">About Us</a>
+    <a href="#" class="block text-white font-bold hover:text-yellow-400">Store</a>
+    <a href="login.html" class="block text-white font-bold hover:text-yellow-400" id="loginButtonMobile">Login</a>
+</div>
+
+
+
+
+<!-- Main Container -->
+<div class="container">
+    <!-- Left Side Content -->
+    <div class="left-side">
+        <h2 class="animate-left">Your Account</h2>
+        <div class="divider"></div>
+
+        <ul class="account-links">
+            <li>
+                <a href="user.html" id="account-preview-link" class="animate-left">
+                    <img src="account-icon.png" alt="Account Icon">
+                    <span>Account Preview</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile.html" class="animate-left">
+                    <img src="profile-icon.png" alt="Profile Icon">
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="order.html" class="animate-left">
+                    <img src="orders-icon.png" alt="Orders Icon">
+                    <span>Orders</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="logout animate-left">
+            <a href="#">
+                <img src="logout-icon.png" alt="Logout Icon">
+                <span>Log Out</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Right Side Content for Order Page -->
+    <div class="right-side">
+        <!-- Divider Line -->
+        <div class="horizontal-line"></div>
+
+        <!-- Title -->
+        <h2 class="order-title">Your Orders</h2>
+
+        <!-- Intro Text -->
+        <p class="order-intro">Here you can find all your orders.</p>
+
+        <!-- Orders Section -->
+        <div id="orders-section">
+            <!-- Placeholder message for no orders -->
+            <div class="no-orders-message">
+                No orders found, buy some things at our <a href="#" onclick="redirectToStore()">Store</a> page.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer Section -->
+<footer class="footer-section py-8">
+    <div class="footer-content flex flex-col md:flex-row justify-between items-start px-4 md:px-0">
+
+        <!-- Logo and Contact Info -->
+        <div class="footer-logo mb-4 md:mb-0">
+            <a href="index.html"><img src="psy.png" alt="Logo"></a>
+        </div>
+
+        <div class="footer-contact text-center md:text-left">
+            <span>Contact us at: support@psy.com</span>
+
+            <!-- Social Media Icons -->
+            <div class="footer-social-icons flex justify-center md:justify-start space-x-4 mt-2">
+                <a href="https://www.instagram.com/psy_addis/?__pwa=1#"><img src="instagram-icon.png" alt="instagram"></a>
+                <a href="https://www.facebook.com/profile.php?id=100089936949638&ref=xav_ig_profile_web"><img src="facebook-icon.png" alt="facebook"></a>
+                <a href="https://www.youtube.com/@PsyAddis"><img src="youtube-icon.png" alt="youtube"></a>
+            </div>
+        </div>
+
+        <!-- Footer Navigation Links -->
+        <div class="footer-nav grid grid-cols-1 md:grid-cols-3 gap-2 text-left mt-6 md:mt-0">
+            <a href="index.html">Home</a>
+            <a href="Aboutus.html">About</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" class="footer-link" data-page="privacy-policy">Privacy Policy</a>
+            <a href="#" class="footer-link" data-page="terms-of-service">Terms of Service</a>
+            <a href="#" class="footer-link" data-page="faq">FAQ</a>
+        </div>
+
+    </div>
+    <!-- Footer Legal Section -->
+    <div class="footer-legal mt-8 py-4 text-center md:text-left text-gray-400">
+        <span>&copy; 2024 Psyaddis. All rights reserved.</span>
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start mt-2">
+            <a href="#" class="footer-link" data-page="privacy-policy">Privacy Policy</a>
+            <a href="#" class="footer-link" data-page="terms-of-service">Terms of Service</a>
+            <a href="#" class="footer-link" data-page="cookies-policy">Cookies</a>
+            <a href="#" class="footer-link" data-page="disclaimer">Disclaimer</a>
+        </div>
+    </div>
+    <!-- JavaScript for Dynamic Content -->
+    <script>
+        const pages = {
+            "privacy-policy": `
+                <h1>Privacy Policy</h1>
+                <p>
+Privacy Policy for PSY Addis
+At PSY Addis, we respect your privacy and are committed to protecting your personal information. This policy outlines how we collect, use, and safeguard the data you share with us.
+
+Information We Collect:
+
+Name, email address, and contact details when you purchase tickets.
+Payment details processed securely by third-party payment providers.
+Data from cookies to enhance your browsing experience.
+How We Use Your Data:
+
+To process ticket purchases and provide event updates.
+To send promotional offers and updates about upcoming house music events.
+For customer support and resolving issues.
+Your Rights:
+
+Access, update, or delete your personal information.
+Opt-out of marketing communications at any time.
+For questions, email us at privacy@psyaddis.com.
+                </p>
+            `,
+            "terms-of-service": `
+                <h1>Terms of Service</h1>
+                <p>
+Terms of Use for PSY Addis Website
+Welcome to the PSY Addis website. By accessing or using our platform, you agree to the following terms:
+
+Ticket Purchases:
+
+Tickets are non-refundable unless the event is canceled.
+Resale of tickets is prohibited.
+Usage Restrictions:
+
+You must be 18+ to purchase tickets.
+Do not use the website for fraudulent or unauthorized activities.
+Liability:
+
+PSY Addis is not responsible for any issues caused by third-party services (e.g., payment gateways).
+If you have any concerns, contact support@psyaddis.com.
+                </p>
+            `,
+            "faq": `
+                <h1>Frequently Asked Questions</h1>
+                <p><strong>Q:</strong> Q: How can I purchase tickets?
+<br><strong>A:</strong> Visit our website, select your event, and follow the payment steps.</p>
+
+<p><strong>Q:</strong> Q: Are refunds available?
+<br><strong>A:</strong> Refunds are issued only if the event is canceled.</p>
+
+<p><strong>Q:</strong> Q: Can I transfer my ticket to someone else?
+<br><strong>A:</strong> Yes, tickets are transferable, but the buyer assumes all risks.</p>
+
+<p><strong>Q:</strong> Q: What if I don’t receive my ticket?
+<br><strong>A:</strong> Contact us at support@psyaddis.com, and we’ll resolve it promptly.</p>
+
+<p><strong>Q:</strong> Q: Do I need to print my ticket?
+<br><strong>A:</strong> No, digital tickets are accepted at the event entrance.</p>
+
+
+            `,
+            "cookies-policy": `
+                <h1>Cookies Policy</h1>
+                <p>
+We use cookies to ensure a seamless experience on our website.
+
+What Are Cookies?
+Cookies are small files stored on your device to improve website functionality and enhance your user experience.
+
+How We Use Cookies:
+
+To remember your preferences and login details.
+To analyze website traffic and improve our services.
+Managing Cookies:
+You can adjust your browser settings to disable cookies, but this may limit some website features.
+
+For more details, email cookies@psyaddis.com.
+
+
+                </p>
+            `,
+            "disclaimer": `
+                <h1>Disclaimer</h1>
+                <p>4. Disclaimer
+PSY Addis provides this website “as is” without warranties of any kind.
+
+Event Information:
+
+Event details are subject to change without prior notice.
+PSY Addis is not liable for third-party event management issues.
+Website Availability:
+
+We strive for uninterrupted service but cannot guarantee availability at all times.
+For further assistance, email info@psyaddis.com.
+
+</p>
+            `,
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll(".footer-link");
+            const body = document.querySelector("body");
+            const contentWrapper = document.createElement("div");
+            contentWrapper.id = "dynamic-page";
+            contentWrapper.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 70%;
+                height: 100%;
+                background: black;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box;
+                display: none;
+            `;
+            body.appendChild(contentWrapper);
+
+            links.forEach(link => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const page = event.target.dataset.page;
+                    if (pages[page]) {
+                        contentWrapper.innerHTML = pages[page] + `<button id="close-btn" style="margin-top: 20px; padding: 10px 20px; background: gray; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>`;
+                        contentWrapper.style.display = "flex";
+
+                        document.getElementById("close-btn").addEventListener("click", () => {
+                            contentWrapper.style.display = "none";
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</footer>
+
+</body>
+</html>

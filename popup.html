@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tickets</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<!-- Clickable Circle -->
+<div class="circle" onclick="openPopUp()"></div>
+
+<!-- Pop-up for My Tickets -->
+<div class="popup" id="myTicketsPopup" onclick="closePopUp(event)">
+  <div class="popup-content" onclick="event.stopPropagation()">
+    <!-- Close Button -->
+    <button class="close-btn" onclick="closePopUp()">X</button>
+    <div class="popup-header">
+      <h1>My Tickets</h1>
+    </div>
+    <div class="ticket-container">
+      <!-- Ticket Cards will be dynamically added here -->
+    </div>
+  </div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
